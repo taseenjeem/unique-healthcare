@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
         <TanStackProvider>
           <NextUI>
             <NavigationBar />
-            <main className="wrapper">{children}</main>
+            <main>{children}</main>
           </NextUI>
         </TanStackProvider>
       </body>
