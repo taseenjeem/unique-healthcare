@@ -1,5 +1,6 @@
 import TanStackProvider from "@/providers/TanstackProvider";
 import { Inter } from "next/font/google";
+import NextUI from "@/providers/NextUI";
 import "@/styles/globals.scss";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -14,7 +15,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <TanStackProvider>
-          <main className="wrapper">{children}</main>
+          <NextUI>
+            <main className="wrapper">{children}</main>
+          </NextUI>
         </TanStackProvider>
       </body>
     </html>
