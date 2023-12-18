@@ -2,6 +2,7 @@ import TanStackProvider from "@/providers/TanstackProvider";
 import { Inter } from "next/font/google";
 import NextUI from "@/providers/NextUI";
 import "@/styles/globals.scss";
+import NavigationBar from "@/components/common/NavigationBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,10 +13,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="light bg-accent">
       <body className={inter.className}>
         <TanStackProvider>
           <NextUI>
+            <NavigationBar />
             <main className="wrapper">{children}</main>
           </NextUI>
         </TanStackProvider>

@@ -1,7 +1,7 @@
-import React from "react";
+import HomePageStructure from "@/components/pages/LandingPage/HomePageStructure";
 
-const LandingPage = () => {
-  return <div className="bg-primary">This is landing page</div>;
+const MainPage = () => {
+  return <HomePageStructure />;
 };
 
-export default LandingPage;
+export default MainPage;
