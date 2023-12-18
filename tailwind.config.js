@@ -9,7 +9,28 @@ module.exports = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    colors: {
+      primary: "#5D9C59",
+      secondary: "#DF2E38",
+      neutral: "#DDF7E3",
+      accent: "#C7E8CA",
+    },
   },
-  plugins: [nextui()],
+  plugins: [
+    nextui({
+      themes: {
+        light: {
+          colors: {
+            primary: "#5D9C59",
+            secondary: "#DF2E38",
+            neutral: "#DDF7E3",
+            accent: "#C7E8CA",
+          },
+        },
+        dark: {
+          colors: {},
+        },
+      },
+    }),
+  ],
 };
