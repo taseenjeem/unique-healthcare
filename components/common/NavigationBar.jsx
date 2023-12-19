@@ -53,6 +53,11 @@ export default function NavigationBar() {
         </NavbarItem>
         <NavbarItem>
           <Link href="#" className="text-sm">
+            Notice
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="#" className="text-sm">
             About Us
           </Link>
         </NavbarItem>
