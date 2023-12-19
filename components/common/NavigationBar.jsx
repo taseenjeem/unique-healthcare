@@ -36,7 +36,9 @@ export default function NavigationBar() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <p className="md:text-xl font-bold text-inherit">Unique Pathology</p>
+          <p className="md:text-xl font-bold text-inherit text-primary">
+            Unique Pathology
+          </p>
         </NavbarBrand>
       </NavbarContent>
 

@@ -3,6 +3,7 @@ import { Maven_Pro } from "next/font/google";
 import NextUI from "@/providers/NextUI";
 import "@/styles/globals.scss";
 import NavigationBar from "@/components/common/NavigationBar";
+import Footer from "@/components/common/Footer";
 
 const MavenPro = Maven_Pro({
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
           <NextUI>
             <NavigationBar />
             <main>{children}</main>
+            <Footer />
           </NextUI>
         </TanStackProvider>
       </body>
