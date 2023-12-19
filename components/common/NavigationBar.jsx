@@ -36,7 +36,7 @@ export default function NavigationBar() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <p className="font-bold text-inherit">ACME</p>
+          <p className="md:text-xl font-bold text-inherit">Unique Pathology</p>
         </NavbarBrand>
       </NavbarContent>
 
