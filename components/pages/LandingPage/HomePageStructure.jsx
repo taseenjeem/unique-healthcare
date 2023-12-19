@@ -3,6 +3,7 @@ import Hero from "./Hero";
 import NoticeSlide from "./NoticeSlide";
 import LabServices from "./LabServices";
 import LabTechs from "./LabTechs";
+import Doctors from "./Doctors";
 
 const HomePageStructure = () => {
   return (
@@ -11,6 +12,7 @@ const HomePageStructure = () => {
       <NoticeSlide />
       <LabServices />
       <LabTechs />
+      <Doctors />
     </section>
   );
 };

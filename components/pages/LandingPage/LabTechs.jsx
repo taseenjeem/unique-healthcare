@@ -65,7 +65,7 @@ const LabTechs = () => {
   data.map((d) => console.log(d.photo));
 
   return (
-    <section className="md:my-20 my-10 wrapper">
+    <section className="md:my-28 my-10 wrapper">
       <span className="relative flex justify-center mb-3">
         <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"></div>
 
