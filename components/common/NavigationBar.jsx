@@ -40,20 +40,25 @@ export default function NavigationBar() {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className="hidden sm:flex gap-7" justify="center">
         <NavbarItem>
           <Link href="#" className="text-sm">
-            Features
+            Find a Doctor
           </Link>
         </NavbarItem>
         <NavbarItem>
           <Link href="#" className="text-sm">
-            Customers
+            Pathology Lab
           </Link>
         </NavbarItem>
         <NavbarItem>
           <Link href="#" className="text-sm">
-            Integrations
+            About Us
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="#" className="text-sm">
+            Contact Us
           </Link>
         </NavbarItem>
       </NavbarContent>
