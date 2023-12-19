@@ -83,7 +83,7 @@ const LabTechs = () => {
         Medical Laboratory Machines
       </h3>
 
-      <Slider className="md:mt-10" {...sliderSettings}>
+      <Slider {...sliderSettings}>
         {data?.map((item) => (
           <div key={item?.id} className="my-10">
             <div className="md:mx-10 mx-2 bg-neutral p-5 rounded-lg shadow-lg min-h-[370px]">
