@@ -80,7 +80,7 @@ const LabTechs = () => {
 
       <Slider {...sliderSettings}>
         {data?.map((item) => (
-          <div key={item?.id} className="my-10">
+          <div key={item?.id} className="my-10 cursor-move">
             <div className="md:mx-10 mx-2 bg-neutral p-5 rounded-lg shadow-lg min-h-[370px]">
               <div className="relative w-40 h-40 overflow-hidden">
                 <Image
