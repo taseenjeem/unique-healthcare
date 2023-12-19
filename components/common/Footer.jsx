@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="wrapper py-16">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
-            <h4 className="text-xl font-semibold">Unique Pathology</h4>
+            <h4 className="md:text-2xl text-xl font-bold">Unique Pathology</h4>
             <p className="max-w-xs mt-4 text-sm text-gray-600">
               Unique Pathology is a leading medical center dedicated to precise
               diagnostics and patient care in Sherpur, Bangladesh. Our expert

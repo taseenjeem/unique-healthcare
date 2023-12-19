@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "photo": "/assets/images/med-machines/automated-semen-analyzer.png",
+    "title": "SQA-Vision Automated Semen Analyzer",
+    "description": "Our SQA-Vision Automated Semen Analyzer has a 75 Second Test Cycle for Fresh, IUI/IVF, Washed, Post-Vas, Frozen, Mail-In, Longevity, & Manual Count Sample Types. Sperm Concentration, Motility, Rapid/Slow/Non-Progressive Motility, Normal Morphology, Functional Sperm, Velocity, Much More."
+  },
+  {
+    "id": "2",
+    "photo": "/assets/images/med-machines/bd-bactec-fx40.png",
+    "title": "BD™ BACTEC™ FX40 Automated Blood Culture System",
+    "description": "The BD BACTEC™ FX40 Automated Blood Culture System is an automated blood culture instrument used for the growth and detection of organisms present in blood samples. It uses BD's unique resin media, which neutralizes antimicrobials present in the blood allowing for faster recovery of organisms."
+  },
+  {
+    "id": "3",
+    "photo": "/assets/images/med-machines/chemistry-analyzers.png",
+    "title": "Fully-automated, random access benchtop clinical chemistry analyzers",
+    "description": "Uniquely designed as a complete, cost-effective solution for clinical laboratory testing, the Thermo Scientific Indiko and Indiko Plus are fully-automated, random-access bench top analyzers for labs of any size. These easy-to-use, compact analyzer platforms are trusted by over 6,500 customers worldwide. The intuitive user interface is supported by a touch screen and includes laboratory information system (LIS) connectivity. Furthermore, Thermo Fisher Scientific offers a wide variety of reagents, calibrators and controls for the Indiko systems, eliminating the need for in-house laboratory validation."
+  },
+  {
+    "id": "4",
+    "photo": "/assets/images/med-machines/easylyte.png",
+    "title": "EasyLyte Electrolyte Analyzers",
+    "description": "Medica Corporation's EasyLyte® analyzer is a completely automated, microprocessor-controlled electrolyte system that uses ISE (Ion Selective Electrode) technology to make electrolyte measurements. The EasyLyte product line measures combinations of Na+, K+, Cl–, Li+, Ca++, and pH in whole blood, serum, plasma, or urine."
+  },
+  {
+    "id": "5",
+    "photo": "/assets/images/med-machines/ekg.png",
+    "title": "GE MAC 2000 EKG Machine",
+    "description": "The GE Mac 2000 EKG is a 12-channel electrocardiograph. The MAC 2000 machine can hold up to 200 ECG reading internally, with features to export the reading to PDFs and XML along with wireless capabilities to connect within the healthcare facility. The GE ECG one-touch operation can give a reading in about 10 seconds. The MAC 2000 has a 7-inch color display. Another EKG by GE is the GE MAC 5500."
+  },
+  {
+    "id": "6",
+    "photo": "/assets/images/med-machines/fia-meter.png",
+    "title": "Finecare™ FIA Meter III Plus",
+    "description": "Finecare™ FIA Meter III Plus is a fluorescence immunochromatographic semi-automatic analysing system with internal temperature control. It can test 20 items at the same time and help diagnose conditions such as infection, diabetes, cardiovascular diseases, renal injury and hormone, etc."
+  },
+  {
+    "id": "7",
+    "photo": "/assets/images/med-machines/kc1-delta.png",
+    "title": "KC1 Delta™ – semi automated coagulation analyzer",
+    "description": "Tcoag’s KC1 Delta is a semi automated coagulation analyser with a single test position providing operators with a compact easy to use system. KC Delta series instruments use micro-mechanical clot detection technology for clotting assays. In combination with KC1 Delta, Tcoag provides a reagent portfolio as a comprehensive solution to your choice in Haemostasis."
+  },
+  {
+    "id": "8",
+    "photo": "/assets/images/med-machines/mini-cap-flex-piercing.png",
+    "title": "MINICAP FLEX-PIERCING",
+    "description": "The MINICAP FLEX-PIERCING instrument offers flexibility for small size laboratories. The fully automated instrument meets the needs of the laboratory while providing clear-cut and precise separations utilizing capillary electrophoresis technology. This multi-parameter, compact, automated capillary electrophoresis instrument offers a comprehensive menu on serum and whole blood for Protein, Immunotyping, HbA1c, Hemoglobin and CDT (Carbohydrate Deficient Transferrin) testing."
+  },
+  {
+    "id": "9",
+    "photo": "/assets/images/med-machines/mini-vidas.png",
+    "title": "Auto Immunoassay Analyzer Mini-Vedas",
+    "description": "mini VIDAS® is a compact automated immunoassay system based on the Enzyme Linked Fluorescent Assay (ELFA) principles. Convenient and user-friendly, it provides accurate on-demand test results."
+  },
+  {
+    "id": "10",
+    "photo": "/assets/images/med-machines/rotograph-evo.png",
+    "title": "Rotograph Evo-D Digital Panoramic X Ray Unit",
+    "description": "The Rotograph EVO D is the 7th generation Rotograph brought to you by Villa. Its prestige has now been refined in 2014 with the addition of the touch screen interface, which effectively enhances operation with full representations of the jaw and skull. Our formula for best diagnostic images with lowest dose starts with 1) Short exam times preventing patient movement, 2) customizable kV 60 to 86 and mA 6 to 12 with preprogrammed values for patient size, and 3) image refinement delivered directly from the machine to your preferred capture software."
+  },
+  {
+    "id": "11",
+    "photo": "/assets/images/med-machines/sinbe.png",
+    "title": "Snibe Maglumi 800 Fully Automatic Immunoassay Analyzer",
+    "description": "Non-Enzyme Involved Flash Chemiluminescence, Long Stability Of Reagents. Up To 40 Sample Tubes, Continuous Loading, Stat Available, Analyzer Auto Numbered, Lis Connection, Refrigerated Sample Area With Independent Power Supply."
+  },
+  {
+    "id": "12",
+    "photo": "/assets/images/med-machines/v5.png",
+    "title": "GE Logiq V5 Ultrasound Machine, Color Doppler Velocity, 3",
+    "description": "Man Machine Electronics is proud to offer a line of products from GE Healthcare, a company that is providing transformational medical technologies and services that are shaping a new age of patient care. The GE LOGIQ V5 makes advanced ultrasound technology simple, affordable, and accessible for shared service users across a wide range of abdominal, vascular, obstetrics, and other exams."
+  }
+]
