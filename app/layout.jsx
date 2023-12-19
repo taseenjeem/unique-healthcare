@@ -1,10 +1,13 @@
 import TanStackProvider from "@/providers/TanstackProvider";
-import { Inter } from "next/font/google";
+import { Maven_Pro } from "next/font/google";
 import NextUI from "@/providers/NextUI";
 import "@/styles/globals.scss";
 import NavigationBar from "@/components/common/NavigationBar";
 
-const inter = Inter({ subsets: ["latin"] });
+const MavenPro = Maven_Pro({
+  weight: ["400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
 
 export const metadata = {
   title: "Unique Pathology",
@@ -14,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="light bg-accent">
-      <body className={inter.className}>
+      <body className={MavenPro.className}>
         <TanStackProvider>
           <NextUI>
             <NavigationBar />
