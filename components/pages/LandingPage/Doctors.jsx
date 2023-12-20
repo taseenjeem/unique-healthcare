@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import heroImg from "/public/assets/images/doctors-hero-image.png";
+import { Button } from "@nextui-org/react";
+import Link from "next/link";
 
 const Doctors = () => {
   return (
@@ -18,18 +20,42 @@ const Doctors = () => {
         Doctors In Our Country
       </h3>
 
-      <div className="flex items-center justify-center gap-5">
-        <div className="relative w-full h-full overflow-hidden">
+      <div className="grid md:grid-cols-2 items-center justify-center gap-5 mt-10">
+        <div className="relative w-full h-full overflow-hidden mx-auto">
           <Image
             src={heroImg}
             alt="Doctors Image"
             width={500}
             height={380}
-            className="object-cover"
+            className="object-cover rounded-lg shadow-xl mx-auto"
           />
         </div>
         <div>
-          <h4></h4>
+          <h4 className="capitalize text-4xl font-semibold mb-5">
+            Our top researches
+          </h4>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore ut
+            eos deleniti adipisci, incidunt consectetur placeat. Corrupti
+            tempora hic ipsa debitis iste fugit accusamus esse magni non! Qui et
+            mollitia soluta, vero expedita autem ipsum animi dolorum, odio
+            consequuntur ad, neque sit dolores rerum. Consequuntur dolore
+            aspernatur delectus, porro veritatis doloremque magnam aliquam quos
+            sint nisi possimus ipsum necessitatibus. Perferendis adipisci
+            assumenda, quam sunt consectetur aut fuga expedita quasi atque in
+            molestiae dolores eaque quaerat earum maxime quisquam. Architecto
+            quasi, repellat saepe aut odit debitis vel ipsum laudantium deleniti
+            omnis. Incidunt alias sit nemo pariatur quisquam quae assumenda
+            maiores cupiditate?
+          </p>
+          <Button
+            as={Link}
+            href="/pathology-lab"
+            color="primary"
+            className="text-white mt-5"
+          >
+            Learn More
+          </Button>
         </div>
       </div>
     </section>

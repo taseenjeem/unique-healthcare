@@ -14,10 +14,10 @@ module.exports = {
       themes: {
         light: {
           colors: {
-            primary: "#5D9C59",
-            secondary: "#DF2E38",
-            neutral: "#DDF7E3",
-            accent: "#C7E8CA",
+            primary: "#27374D",
+            secondary: "#526D82",
+            neutral: "#9DB2BF",
+            accent: "#DDE6ED",
           },
         },
         dark: {
