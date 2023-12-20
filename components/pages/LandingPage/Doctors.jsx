@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import heroImg from "/public/assets/images/doctors-hero-image.png";
+import heroImg2 from "/public/assets/images/doctors-hero-image2.png";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
 import Slider from "react-slick";
@@ -80,8 +81,8 @@ const Doctors = () => {
         Doctors Around The World
       </h3>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-center justify-center gap-5 mt-10">
-        <div className="relative w-full h-full overflow-hidden mx-auto">
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-5 mt-10">
+        <div className="relative w-full lg:w-1/2 overflow-hidden mx-auto">
           <Image
             src={heroImg}
             alt="Doctors Image"
@@ -90,7 +91,7 @@ const Doctors = () => {
             className="object-cover rounded-lg shadow-xl mx-auto"
           />
         </div>
-        <div>
+        <div className="w-full lg:w-1/2">
           <h4 className="capitalize md:text-3xl text-xl font-semibold mb-5">
             Our top researches
           </h4>
@@ -156,6 +157,41 @@ const Doctors = () => {
           </div>
         ))}
       </Slider>
+
+      <div className="flex flex-col lg:flex-row-reverse items-center justify-center gap-5 mt-20">
+        <div className="relative w-full lg:w-1/2 overflow-hidden mx-auto">
+          <Image
+            src={heroImg2}
+            alt="Doctors Image"
+            width={500}
+            height={380}
+            className="object-cover rounded-lg shadow-xl mx-auto"
+          />
+        </div>
+        <div className="w-full lg:w-1/2">
+          <h4 className="capitalize md:text-3xl text-xl font-semibold mb-5">
+            because we care
+          </h4>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore ut
+            eos deleniti adipisci, incidunt consectetur placeat. Corrupti
+            tempora hic ipsa debitis iste fugit accusamus esse magni non! Qui et
+            mollitia soluta, vero expedita autem ipsum animi dolorum, odio
+            consequuntur ad, neque sit dolores rerum. Consequuntur dolore
+            aspernatur delectus, porro veritatis doloremque magnam aliquam quos
+            sint nisi possimus ipsum necessitatibus. Perferendis adipisci
+            assumenda,
+          </p>
+          <Button
+            as={Link}
+            href="/find-a-doctor"
+            color="primary"
+            className="text-white mt-5"
+          >
+            Find a Doctor
+          </Button>
+        </div>
+      </div>
     </section>
   );
 };
