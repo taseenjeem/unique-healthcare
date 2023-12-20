@@ -1,6 +1,8 @@
 import React from "react";
 import heroImage from "/public/assets/images/doctor.jpg";
 import Image from "next/image";
+import { Button } from "@nextui-org/react";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -34,6 +36,14 @@ const Hero = () => {
             accurate assessments and personalized attention for every
             individual, prioritizing their health and well-being.
           </p>
+          <Button
+            as={Link}
+            href="/get-an-appointment"
+            color="primary"
+            className="text-white"
+          >
+            Get Consultancy
+          </Button>
         </div>
       </div>
     </div>

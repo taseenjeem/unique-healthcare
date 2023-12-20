@@ -29,49 +29,62 @@ export default function NavigationBar() {
   ];
 
   return (
-    <Navbar isBlurred shouldHideOnScroll onMenuOpenChange={setIsMenuOpen}>
+    <Navbar
+      maxWidth="xl"
+      isBlurred
+      shouldHideOnScroll
+      onMenuOpenChange={setIsMenuOpen}
+    >
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
         <NavbarBrand>
-          <p className="md:text-xl font-bold text-inherit text-primary">
+          <Link
+            href="/"
+            className="md:text-xl font-bold text-inherit text-primary"
+          >
             Unique Pathology
-          </p>
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-7" justify="center">
+      <NavbarContent className="hidden sm:flex gap-5" justify="center">
         <NavbarItem>
-          <Link href="#" className="text-sm">
+          <Link href="/get-an-appointment" className="text-sm">
+            Get Appointment
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="/find-a-doctor" className="text-sm">
             Find a Doctor
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#" className="text-sm">
+          <Link href="pathology-lab" className="text-sm">
             Pathology Lab
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#" className="text-sm">
+          <Link href="/notice" className="text-sm">
             Notice
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#" className="text-sm">
+          <Link href="/about-us" className="text-sm">
             About Us
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#" className="text-sm">
+          <Link href="/contact-us" className="text-sm">
             Contact Us
           </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
+          <Button as={Link} color="primary" href="/login" variant="flat">
             Log In
           </Button>
         </NavbarItem>

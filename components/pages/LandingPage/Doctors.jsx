@@ -1,4 +1,6 @@
+import Image from "next/image";
 import React from "react";
+import heroImg from "/public/assets/images/doctors-hero-image.png";
 
 const Doctors = () => {
   return (
@@ -15,6 +17,21 @@ const Doctors = () => {
         <br />
         Doctors In Our Country
       </h3>
+
+      <div className="flex items-center justify-center gap-5">
+        <div className="relative w-full h-full overflow-hidden">
+          <Image
+            src={heroImg}
+            alt="Doctors Image"
+            width={500}
+            height={380}
+            className="object-cover"
+          />
+        </div>
+        <div>
+          <h4></h4>
+        </div>
+      </div>
     </section>
   );
 };
