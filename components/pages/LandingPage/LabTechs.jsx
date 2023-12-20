@@ -62,8 +62,6 @@ const LabTechs = () => {
     ],
   };
 
-  data.map((d) => console.log(d.photo));
-
   return (
     <section className="md:my-28 my-10 wrapper">
       <span className="relative flex justify-center mb-3">
