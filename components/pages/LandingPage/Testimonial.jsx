@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Loading from "@/components/utilities/Loading";
 
 const Testimonial = () => {
   const [data, setData] = useState(null);
@@ -18,7 +19,7 @@ const Testimonial = () => {
       });
   }, []);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loading />;
   if (!data) return <p>No profile data</p>;
 
   const sliderSettings = {

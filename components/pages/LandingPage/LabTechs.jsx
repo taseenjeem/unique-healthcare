@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import { Popover, PopoverContent, PopoverTrigger } from "@nextui-org/react";
+import Loading from "@/components/utilities/Loading";
 
 const LabTechs = () => {
   const [data, setData] = useState(null);
@@ -19,7 +20,7 @@ const LabTechs = () => {
       });
   }, []);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loading />;
   if (!data) return <p>No profile data</p>;
 
   const sliderSettings = {

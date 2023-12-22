@@ -9,6 +9,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaLocationDot } from "react-icons/fa6";
+import Loading from "@/components/utilities/Loading";
 
 const Doctors = () => {
   const [data, setData] = useState(null);
@@ -23,7 +24,7 @@ const Doctors = () => {
       });
   }, []);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loading />;
   if (!data) return <p>No profile data</p>;
 
   const sliderSettings = {
