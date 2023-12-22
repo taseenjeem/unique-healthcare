@@ -55,3 +55,14 @@
 .slick-arrow {
   display: none !important;
 }
+
+.gradient-bg {
+  background-image: linear-gradient(
+    to top,
+    #27374d,
+    #425468,
+    #5e7284,
+    #7d91a1,
+    #9db2bf
+  );
+}
