@@ -4,6 +4,8 @@ import NoticeSlide from "./NoticeSlide";
 import LabServices from "./LabServices";
 import LabTechs from "./LabTechs";
 import Doctors from "./Doctors";
+import CTA from "./CTA";
+import Testimonial from "./Testimonial";
 
 const HomePageStructure = () => {
   return (
@@ -13,6 +15,8 @@ const HomePageStructure = () => {
       <LabServices />
       <LabTechs />
       <Doctors />
+      <Testimonial />
+      <CTA />
     </section>
   );
 };
