@@ -32,7 +32,7 @@ const CTA = () => {
             className="text-white"
             variant="bordered"
           >
-            Get Appointment
+            Get Appointment Now
           </Button>
         </div>
       </div>
