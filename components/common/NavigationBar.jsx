@@ -84,7 +84,12 @@ export default function NavigationBar() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button as={Link} color="primary" href="/login" variant="flat">
+          <Button
+            as={Link}
+            color="primary"
+            href="/login"
+            className="text-white font-semibold"
+          >
             Log In
           </Button>
         </NavbarItem>
