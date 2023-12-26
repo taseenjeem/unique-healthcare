@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Button, Input } from "@nextui-org/react";
+import { Button, Divider, Input } from "@nextui-org/react";
 import { IoEye, IoEyeOff, IoLogoGoogle } from "react-icons/io5";
 import Link from "next/link";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -52,6 +52,7 @@ const LoginMainStructure = () => {
               <h4 className="text-center font-semibold text-primary">
                 Welcome back!
               </h4>
+              <Divider className="my-2 w-20 mx-auto" />
               <h1 className="text-center text-2xl font-bold text-primary">
                 Unique Pathology <br />
                 Customer Portal

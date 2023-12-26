@@ -1,7 +1,8 @@
+import SignUpMainStructure from "@/components/pages/RegistrationPage/SignUpMainStructure";
 import React from "react";
 
 const RegisterPage = () => {
-  return <div></div>;
+  return <SignUpMainStructure />;
 };
 
 export default RegisterPage;

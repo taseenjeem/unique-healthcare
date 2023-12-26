@@ -4,6 +4,7 @@ import NextUI from "@/providers/NextUI";
 import "@/styles/globals.scss";
 import NavigationBar from "@/components/common/NavigationBar";
 import Footer from "@/components/common/Footer";
+import { Toaster } from "react-hot-toast";
 
 const MavenPro = Maven_Pro({
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
             <NavigationBar />
             <main>{children}</main>
             <Footer />
+            <Toaster />
           </NextUI>
         </TanStackProvider>
       </body>
