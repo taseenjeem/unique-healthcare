@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -9,11 +9,47 @@ import {
   NavbarMenuToggle,
   NavbarMenuItem,
   NavbarMenu,
+  Dropdown,
+  DropdownTrigger,
+  Avatar,
+  DropdownMenu,
+  DropdownItem,
 } from "@nextui-org/react";
 import Link from "next/link";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import app from "@/providers/firebase.init";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export default function NavigationBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [userInfo, setUserInfo] = useState(null);
+
+  const router = useRouter();
+
+  const auth = getAuth(app);
+
+  useLayoutEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserInfo(user);
+      } else {
+        setUserInfo(null);
+      }
+    });
+  }, [auth]);
+
+  const handleLogOut = () => {
+    signOut(auth)
+      .then(() => {
+        toast.success("Logout Successful!");
+        router.push("/");
+      })
+      .catch((err) => {
+        toast.error("Something went wrong!");
+        console.log(err);
+      });
+  };
 
   const menuItems = [
     "Profile",
@@ -83,16 +119,43 @@ export default function NavigationBar() {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem>
-          <Button
-            as={Link}
-            color="primary"
-            href="/login"
-            className="text-white font-semibold"
-          >
-            Log In
-          </Button>
-        </NavbarItem>
+        {!userInfo ? (
+          <NavbarItem>
+            <Button
+              as={Link}
+              color="primary"
+              href="/login"
+              className="text-white font-semibold"
+            >
+              Log In
+            </Button>
+          </NavbarItem>
+        ) : (
+          <Dropdown backdrop="blur" placement="bottom-end">
+            <DropdownTrigger>
+              <Avatar
+                isBordered
+                as="button"
+                className="transition-transform"
+                src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              />
+            </DropdownTrigger>
+            <DropdownMenu aria-label="Profile Actions" variant="flat">
+              <DropdownItem key="profile" className="h-14 gap-2">
+                <p className="font-semibold">Greetings!</p>
+                <p className="font-semibold text-lg">{userInfo?.displayName}</p>
+              </DropdownItem>
+              <DropdownItem key="settings">My Account</DropdownItem>
+              <DropdownItem
+                key="logout"
+                color="danger"
+                onClick={() => handleLogOut()}
+              >
+                Log Out
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+        )}
       </NavbarContent>
       <NavbarMenu>
         {menuItems.map((item, index) => (
