@@ -43,14 +43,6 @@ const SignUpMainStructure = () => {
     const password = e.target.password.value;
     const confirm_password = e.target.confirmPassword.value;
 
-    const userInfo = {
-      name,
-      email,
-      country,
-      phone,
-      password,
-    };
-
     if (password !== confirm_password) {
       toast.error("Your password didn't match");
       setIsLoading(false);
@@ -72,29 +64,46 @@ const SignUpMainStructure = () => {
 
         if (newUser) {
           await sendEmailVerification(newUser);
+
           await updateProfile(newUser, {
             displayName: name,
           });
+
+          const account_creation_time = newUser?.metadata?.creationTime;
+
           fetch("http://localhost:8000/add-new-customer-info", {
             method: "POST",
             headers: { "content-type": "application/json" },
-            body: JSON.stringify(userInfo),
+            body: JSON.stringify({
+              name,
+              email,
+              country,
+              phone,
+              password,
+              account_creation_time,
+            }),
           })
             .then((response) => response.json())
             .then((feedback) => console.log(feedback));
+
           setIsLoading(false);
+
           router.push("/");
+
           toast.success("Account created successfully");
         } else {
           toast.error("Something went wrong!");
+
           setIsLoading(false);
         }
       } catch (error) {
         console.log(error.code);
+
         if (error.message === "Firebase: Error (auth/email-already-in-use).") {
           toast.error(
             "This email is already in use. Please try another email."
           );
+
           setIsLoading(false);
         }
       }

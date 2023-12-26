@@ -20,8 +20,8 @@ const LabServices = () => {
         Laboratory Service
       </h3>
 
-      <div class="grid md:grid-cols-2 border border-primary mt-10">
-        <div class="md:p-6 p-3 bg-neutral border-b md:border-r border-primary hover:bg-primary hover:text-white duration-250 cursor-pointer">
+      <div className="grid md:grid-cols-2 border border-primary mt-10">
+        <div className="md:p-6 p-3 bg-neutral border-b md:border-r border-primary hover:bg-primary hover:text-white duration-250 cursor-pointer">
           <FaClinicMedical className="text-7xl mb-3" />
           <h4 className="text-2xl font-semibold mb-3">Clinical Pathology</h4>
           <p>
@@ -32,7 +32,7 @@ const LabServices = () => {
             function, detect infections, evaluate electrolyte balance, and more.
           </p>
         </div>
-        <div class="md:p-6 p-3 bg-neutral border-b border-primary hover:bg-primary hover:text-white duration-250 cursor-pointer">
+        <div className="md:p-6 p-3 bg-neutral border-b border-primary hover:bg-primary hover:text-white duration-250 cursor-pointer">
           <GiAnatomy className="text-7xl mb-3" />
           <h4 className="text-2xl font-semibold mb-3">Anatomical Pathology</h4>
           <p>
@@ -44,7 +44,7 @@ const LabServices = () => {
             cytology (study of cells), and forensic pathology.
           </p>
         </div>
-        <div class="md:p-6 p-3 bg-neutral md:border-r border-b md:border-b-0 border-primary hover:bg-primary hover:text-white duration-250 cursor-pointer">
+        <div className="md:p-6 p-3 bg-neutral md:border-r border-b md:border-b-0 border-primary hover:bg-primary hover:text-white duration-250 cursor-pointer">
           <PiTestTubeFill className="text-7xl mb-3" />
           <h4 className="text-2xl font-semibold mb-3">Hematology</h4>
           <p>
@@ -55,7 +55,7 @@ const LabServices = () => {
             examinations are conducted in this area.
           </p>
         </div>
-        <div class="md:p-6 p-3 bg-neutral hover:bg-primary hover:text-white duration-250 cursor-pointer">
+        <div className="md:p-6 p-3 bg-neutral hover:bg-primary hover:text-white duration-250 cursor-pointer">
           <TbMicroscope className="text-7xl mb-3" />
           <h4 className="text-2xl font-semibold mb-3">Microbiology</h4>
           <p>
