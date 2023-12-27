@@ -42,41 +42,49 @@ const SignUpMainStructure = () => {
     const provider = new GoogleAuthProvider();
 
     try {
-      signInWithPopup(auth, provider).then((newUser) => {
-        if (newUser) {
-          const name = newUser?.user?.displayName;
-          const email = newUser?.user?.email;
-          const country = null;
-          const phone = null;
-          const password = null;
-          const account_creation_time = newUser?.user?.metadata?.creationTime;
-          console.log(newUser);
+      signInWithPopup(auth, provider)
+        .then((newUser) => {
+          if (newUser) {
+            const name = newUser?.user?.displayName;
+            const email = newUser?.user?.email;
+            const country = null;
+            const phone = null;
+            const password = null;
+            const account_creation_time = newUser?.user?.metadata?.creationTime;
 
-          fetch("http://localhost:8000/add-new-customer-info-with-pop-up", {
-            method: "POST",
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify({
-              name,
-              email,
-              country,
-              phone,
-              password,
-              account_creation_time,
-            }),
-          })
-            .then((response) => response.json())
-            .then((feedback) => console.log(feedback));
+            fetch("http://localhost:8000/add-new-customer-info-with-pop-up", {
+              method: "POST",
+              headers: { "content-type": "application/json" },
+              body: JSON.stringify({
+                name,
+                email,
+                country,
+                phone,
+                password,
+                account_creation_time,
+              }),
+            })
+              .then((response) => response.json())
+              .then((feedback) => console.log(feedback));
 
-          setIsLoading(false);
+            setIsLoading(false);
 
-          router.push("/");
+            router.push("/");
 
-          toast.success("Account created successfully");
-        } else {
-          setIsLoading(false);
-          toast.error("Something Went Wrong!");
-        }
-      });
+            toast.success("Account created successfully");
+          } else {
+            setIsLoading(false);
+            toast.error("Something Went Wrong!");
+          }
+        })
+        .catch((error) => {
+          if (
+            error.message === "Firebase: Error (auth/popup-closed-by-user)."
+          ) {
+            setIsLoading(false);
+            toast.error("You closed the POP UP!");
+          }
+        });
     } catch (error) {
       console.log(error);
     }
