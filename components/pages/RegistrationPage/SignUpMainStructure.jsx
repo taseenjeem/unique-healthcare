@@ -14,9 +14,11 @@ import countryCode from "../../../public/data/CountryCodeByPhone.json";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import {
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   sendEmailVerification,
+  signInWithPopup,
   updateProfile,
 } from "firebase/auth";
 import app from "@/providers/firebase.init";
@@ -28,9 +30,57 @@ const SignUpMainStructure = () => {
 
   const router = useRouter();
 
+  const auth = getAuth(app);
+
   const toggleVisibilityForPass = () => setIsVisiblePass(!isVisiblePass);
   const toggleVisibilityForConfirmPass = () =>
     setIsVisibleConfirmPass(!isVisibleConfirmPass);
+
+  const handleGoogleAuth = () => {
+    setIsLoading(true);
+
+    const provider = new GoogleAuthProvider();
+
+    try {
+      signInWithPopup(auth, provider).then((newUser) => {
+        if (newUser) {
+          const name = newUser?.user?.displayName;
+          const email = newUser?.user?.email;
+          const country = null;
+          const phone = null;
+          const password = null;
+          const account_creation_time = newUser?.user?.metadata?.creationTime;
+          console.log(newUser);
+
+          fetch("http://localhost:8000/add-new-customer-info-with-pop-up", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({
+              name,
+              email,
+              country,
+              phone,
+              password,
+              account_creation_time,
+            }),
+          })
+            .then((response) => response.json())
+            .then((feedback) => console.log(feedback));
+
+          setIsLoading(false);
+
+          router.push("/");
+
+          toast.success("Account created successfully");
+        } else {
+          setIsLoading(false);
+          toast.error("Something Went Wrong!");
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,7 +103,6 @@ const SignUpMainStructure = () => {
       return;
     } else {
       try {
-        const auth = getAuth(app);
         const userCredential = await createUserWithEmailAndPassword(
           auth,
           email,
@@ -247,6 +296,7 @@ const SignUpMainStructure = () => {
                 color="primary"
                 variant="bordered"
                 className="text-primary font-semibold w-full"
+                onClick={() => handleGoogleAuth()}
               >
                 <span className="flex items-center gap-2">
                   <IoLogoGoogle className="text-xl" />
