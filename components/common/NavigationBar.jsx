@@ -30,13 +30,15 @@ export default function NavigationBar() {
   const auth = getAuth(app);
 
   useLayoutEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const isAuthenticated = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserInfo(user);
       } else {
         setUserInfo(null);
       }
     });
+
+    return () => isAuthenticated();
   }, [auth]);
 
   const handleLogOut = () => {

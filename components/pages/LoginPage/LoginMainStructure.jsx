@@ -1,44 +1,47 @@
 "use client";
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 import { Button, Divider, Input } from "@nextui-org/react";
 import { IoEye, IoEyeOff, IoLogoGoogle } from "react-icons/io5";
 import Link from "next/link";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Loading from "@/components/utilities/Loading";
 import app from "@/providers/firebase.init";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const LoginMainStructure = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const toggleVisibility = () => setIsVisible(!isVisible);
+  const router = useRouter();
 
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-    reset,
-  } = useForm();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const onSubmit = (data) => {
-    const auth = getAuth(app);
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
     setIsLoading(true);
 
-    signInWithEmailAndPassword(auth, data?.user_email, data?.user_password)
-      .then((userCredential) => {
-        // Signed up
-        const user = userCredential.user;
+    const auth = getAuth(app);
+
+    try {
+      const result = await signInWithEmailAndPassword(auth, email, password);
+
+      if (result.user) {
+        router.push("/");
         setIsLoading(false);
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        toast.success("Login Successful!");
+      }
+    } catch (error) {
+      if (error.message === "Firebase: Error (auth/invalid-credential).") {
         setIsLoading(false);
-        // ..
-      });
-    reset();
+        toast.error("User not found! Try again");
+      } else {
+        setIsLoading(false);
+        console.error("Login failed:", error);
+      }
+    }
   };
 
   return (
@@ -57,90 +60,49 @@ const LoginMainStructure = () => {
                 Unique Pathology <br />
                 Customer Portal
               </h1>
-              <form className="mt-5" onSubmit={handleSubmit(onSubmit)}>
-                <div className="w-full">
-                  <Input
-                    color="primary"
-                    type="email"
-                    variant="underlined"
-                    label="Email"
-                    autoComplete={false}
-                    className="max-w-md w-full"
-                    {...register("user_email", {
-                      required: {
-                        value: true,
-                        message: "Email is required",
-                      },
-                      pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: "Provide a valid email",
-                      },
-                    })}
-                  />
-                  <label className="mt-2">
-                    {errors.user_email?.type === "pattern" && (
-                      <span className="text-xs text-red-500">
-                        {errors.user_email.message}
-                      </span>
-                    )}
-                    {errors.user_email?.type === "required" && (
-                      <span className="text-xs text-red-500">
-                        {errors.user_email.message}
-                      </span>
-                    )}
-                  </label>
-                </div>
+              <form className="mt-5" onSubmit={handleSubmit}>
+                <Input
+                  color="primary"
+                  type="email"
+                  variant="underlined"
+                  label="Email"
+                  name="email"
+                  autoComplete={false}
+                  className="max-w-md w-full"
+                  isRequired
+                />
 
-                <div className="w-full">
-                  <Input
-                    color="primary"
-                    type={isVisible ? "text" : "password"}
-                    variant="underlined"
-                    label="Password"
-                    className="w-full max-w-md"
-                    endContent={
-                      <button
-                        className="focus:outline-none"
-                        type="button"
-                        onClick={toggleVisibility}
-                      >
-                        {isVisible ? (
-                          <IoEye className="text-2xl text-default-400 pointer-events-none" />
-                        ) : (
-                          <IoEyeOff className="text-2xl text-default-400 pointer-events-none" />
-                        )}
-                      </button>
-                    }
-                    {...register("user_password", {
-                      required: {
-                        value: true,
-                        message: "Password is required",
-                      },
-                      minLength: {
-                        value: 6,
-                        message: "Minimum 6 characters required",
-                      },
-                    })}
-                  />
-                  <label className="flex justify-between mt-2">
-                    {errors.user_password?.type === "minLength" && (
-                      <span className="text-xs text-red-500">
-                        {errors.user_password.message}
-                      </span>
-                    )}
-                    {errors.user_password?.type === "required" && (
-                      <span className="text-xs text-red-500">
-                        {errors.user_password.message}
-                      </span>
-                    )}
-                    <Link
-                      href="/reset-password"
-                      className="text-xs font-semibold hover:underline text-right"
+                <Input
+                  color="primary"
+                  type={isVisible ? "text" : "password"}
+                  variant="underlined"
+                  label="Password"
+                  className="w-full max-w-md"
+                  name="password"
+                  isRequired
+                  endContent={
+                    <button
+                      className="focus:outline-none"
+                      type="button"
+                      onClick={() => setIsVisible(!isVisible)}
                     >
-                      Forgot Password?
-                    </Link>
-                  </label>
-                </div>
+                      {isVisible ? (
+                        <IoEye className="text-2xl text-default-400 pointer-events-none" />
+                      ) : (
+                        <IoEyeOff className="text-2xl text-default-400 pointer-events-none" />
+                      )}
+                    </button>
+                  }
+                />
+                <span className="flex justify-between mt-2">
+                  <Link
+                    href="/reset-password"
+                    className="text-xs font-semibold hover:underline text-right"
+                  >
+                    Forgot Password?
+                  </Link>
+                </span>
+
                 <Button
                   type="submit"
                   color="primary"
