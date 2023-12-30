@@ -108,8 +108,8 @@ const LoginMainStructure = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <section className="min-h-screen gradient-bg">
-          <div className="wrapper w-full min-h-[90vh] flex items-center justify-center">
+        <section className="min-h-screen bg-[url('/assets/images/bg.svg')] bg-no-repeat bg-cover bg-center">
+          <div className="wrapper w-full min-h-[90vh] flex items-center justify-center py-20">
             <div className="bg-white p-5 max-w-md w-full rounded-lg shadow-lg">
               <h4 className="text-center font-semibold text-primary">
                 Welcome back!
