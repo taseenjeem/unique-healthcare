@@ -1,7 +1,8 @@
+import ResetPassStructure from "@/components/pages/RecoverPassword/ResetPassStructure";
 import React from "react";
 
 const ResetPasswordPage = () => {
-  return <div></div>;
+  return <ResetPassStructure />;
 };
 
 export default ResetPasswordPage;
