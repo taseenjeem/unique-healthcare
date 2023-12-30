@@ -3,7 +3,12 @@ import React, { useState } from "react";
 import { Button, Divider, Input } from "@nextui-org/react";
 import { IoEye, IoEyeOff, IoLogoGoogle } from "react-icons/io5";
 import Link from "next/link";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  getAuth,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
 import Loading from "@/components/utilities/Loading";
 import app from "@/providers/firebase.init";
 import { useRouter } from "next/navigation";
@@ -15,6 +20,62 @@ const LoginMainStructure = () => {
 
   const router = useRouter();
 
+  const auth = getAuth(app);
+
+  const handleGoogleAuth = () => {
+    setIsLoading(true);
+
+    const provider = new GoogleAuthProvider();
+
+    try {
+      signInWithPopup(auth, provider)
+        .then((newUser) => {
+          if (newUser) {
+            const name = newUser?.user?.displayName;
+            const email = newUser?.user?.email;
+            const country = null;
+            const phone = null;
+            const password = null;
+            const account_creation_time = newUser?.user?.metadata?.creationTime;
+
+            fetch("http://localhost:8000/add-new-customer-info-with-pop-up", {
+              method: "POST",
+              headers: { "content-type": "application/json" },
+              body: JSON.stringify({
+                name,
+                email,
+                country,
+                phone,
+                password,
+                account_creation_time,
+              }),
+            })
+              .then((response) => response.json())
+              .then((feedback) => console.log(feedback));
+
+            setIsLoading(false);
+
+            router.push("/");
+
+            toast.success("Account created successfully");
+          } else {
+            setIsLoading(false);
+            toast.error("Something Went Wrong!");
+          }
+        })
+        .catch((error) => {
+          if (
+            error.message === "Firebase: Error (auth/popup-closed-by-user)."
+          ) {
+            setIsLoading(false);
+            toast.error("You closed the POP UP!");
+          }
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -22,8 +83,6 @@ const LoginMainStructure = () => {
     const password = e.target.password.value;
 
     setIsLoading(true);
-
-    const auth = getAuth(app);
 
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
@@ -123,6 +182,7 @@ const LoginMainStructure = () => {
                 color="primary"
                 variant="bordered"
                 className="text-primary font-semibold w-full"
+                onClick={() => handleGoogleAuth()}
               >
                 <span className="flex items-center gap-2">
                   <IoLogoGoogle className="text-xl" />
