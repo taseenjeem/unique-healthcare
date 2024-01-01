@@ -19,13 +19,15 @@ import Link from "next/link";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import app from "@/providers/firebase.init";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function NavigationBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
 
   const router = useRouter();
+
+  const pathname = usePathname();
 
   const auth = getAuth(app);
 
@@ -90,32 +92,74 @@ export default function NavigationBar() {
 
       <NavbarContent className="hidden sm:flex gap-5" justify="center">
         <NavbarItem>
-          <Link href="/get-an-appointment" className="text-sm">
+          <Link
+            href="/get-an-appointment"
+            className={
+              pathname == "/get-an-appointment"
+                ? "text-sm font-bold text-primary"
+                : "text-sm"
+            }
+          >
             Get Appointment
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/find-a-doctor" className="text-sm">
+          <Link
+            href="/find-a-doctor"
+            className={
+              pathname == "/find-a-doctor"
+                ? "text-sm font-bold text-primary"
+                : "text-sm"
+            }
+          >
             Find a Doctor
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="pathology-lab" className="text-sm">
+          <Link
+            href="/pathology-lab"
+            className={
+              pathname == "/pathology-lab"
+                ? "text-sm font-bold text-primary"
+                : "text-sm"
+            }
+          >
             Pathology Lab
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/notice" className="text-sm">
+          <Link
+            href="/notice"
+            className={
+              pathname == "/notice"
+                ? "text-sm font-bold text-primary"
+                : "text-sm"
+            }
+          >
             Notice
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/about-us" className="text-sm">
+          <Link
+            href="/about-us"
+            className={
+              pathname == "/about-us"
+                ? "text-sm font-bold text-primary"
+                : "text-sm"
+            }
+          >
             About Us
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/contact-us" className="text-sm">
+          <Link
+            href="/contact-us"
+            className={
+              pathname == "/contact-us"
+                ? "text-sm font-bold text-primary"
+                : "text-sm"
+            }
+          >
             Contact Us
           </Link>
         </NavbarItem>
