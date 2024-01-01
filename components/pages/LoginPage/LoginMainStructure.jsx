@@ -57,7 +57,7 @@ const LoginMainStructure = () => {
 
             router.push("/");
 
-            toast.success("Account created successfully");
+            toast.success("Login successfully");
           } else {
             setIsLoading(false);
             toast.error("Something Went Wrong!");
