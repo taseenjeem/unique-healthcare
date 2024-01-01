@@ -1,4 +1,3 @@
-import TanStackProvider from "@/providers/TanstackProvider";
 import { Maven_Pro } from "next/font/google";
 import NextUI from "@/providers/NextUI";
 import "@/styles/globals.scss";
@@ -20,14 +19,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="light bg-accent">
       <body className={MavenPro.className}>
-        <TanStackProvider>
-          <NextUI>
-            <NavigationBar />
-            <main>{children}</main>
-            <Footer />
-            <Toaster />
-          </NextUI>
-        </TanStackProvider>
+        <NextUI>
+          <NavigationBar />
+          <main>{children}</main>
+          <Footer />
+          <Toaster />
+        </NextUI>
       </body>
     </html>
   );
