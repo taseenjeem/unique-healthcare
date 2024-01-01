@@ -1,3 +1,4 @@
+import FindDocMainStructure from "@/components/pages/FindADoctor/FindDocMainStructure";
 import React from "react";
 
 export const metadata = {
@@ -6,7 +7,7 @@ export const metadata = {
 };
 
 const FindADoctorPage = () => {
-  return <div></div>;
+  return <FindDocMainStructure />;
 };
 
 export default FindADoctorPage;

@@ -16,7 +16,7 @@ const Doctors = () => {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/data/doctors.json")
+    fetch("http://localhost:8000/all-doctors-info")
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -124,7 +124,7 @@ const Doctors = () => {
       <Slider {...sliderSettings}>
         {data?.map((item) => (
           <div
-            key={item.id}
+            key={item._id}
             className="px-5 rounded-lg my-10 cursor-pointer w-full h-full"
           >
             <div className="group relative block bg-primary rounded-lg w-full h-full">
@@ -163,7 +163,7 @@ const Doctors = () => {
         <div className="relative w-full lg:w-1/2 overflow-hidden mx-auto">
           <Image
             src={heroImg2}
-            alt="Doctors Image"
+            alt="Doctor's Image"
             width={500}
             height={380}
             className="object-cover rounded-lg shadow-xl mx-auto"
