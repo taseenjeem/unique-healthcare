@@ -10,22 +10,19 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaLocationDot } from "react-icons/fa6";
 import Loading from "@/components/utilities/Loading";
+import { useQuery } from "@tanstack/react-query";
 
 const Doctors = () => {
-  const [data, setData] = useState(null);
-  const [isLoading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch("http://localhost:8000/all-doctors-info")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-        setLoading(false);
-      });
-  }, []);
+  const { isLoading, data } = useQuery({
+    queryKey: ["DoctorsSlide"],
+    queryFn: async () => {
+      const response = await fetch("http://localhost:8000/all-doctors-info");
+      const doctors = await response.json();
+      return doctors;
+    },
+  });
 
   if (isLoading) return <Loading />;
-  if (!data) return <p>No profile data</p>;
 
   const sliderSettings = {
     dots: true,

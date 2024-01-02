@@ -3,7 +3,7 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <section className="min-h-[70vh] flex items-center justify-center">
+    <section className="min-h-screen flex items-center justify-center">
       <Spinner
         size="lg"
         label="Loading..."
