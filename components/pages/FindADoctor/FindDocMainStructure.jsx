@@ -20,7 +20,7 @@ const FindDocMainStructure = () => {
 
   return (
     <section className="wrapper min-h-screen">
-      <div className="grid grid-cols-2 mt-5">
+      <div className="grid lg:grid-cols-2 mt-5">
         <span>
           <h1 className="text-4xl font-semibold text-primary">Find a doctor</h1>
           <div className="border-gray-400 border-t-2 w-28 my-3" />
@@ -41,7 +41,7 @@ const FindDocMainStructure = () => {
               className="w-full max-h-64 bg-neutral flex items-center rounded-lg"
               key={doctor._id}
             >
-              <div className="relative max-w-[200px] h-full overflow-hidden rounded-tl-lg rounded-bl-lg">
+              <div className="relative lg:max-w-[200px] max-w-[150px] h-full overflow-hidden rounded-tl-lg rounded-bl-lg">
                 <Image
                   width={576}
                   height={768}
@@ -50,15 +50,17 @@ const FindDocMainStructure = () => {
                   className="object-cover "
                 />
               </div>
-              <div className="p-5">
-                <h3 className="font-semibold">{doctor.designation}</h3>
-                <h3 className="text-2xl font-semibold text-primary my-2">
+              <div className="lg:p-5 p-2">
+                <h3 className="font-semibold text-sm lg:text-base">
+                  {doctor.designation}
+                </h3>
+                <h3 className="lg:text-2xl text-lg font-semibold text-primary lg:my-2 my-1">
                   {doctor.name}
                 </h3>
-                <h3>
+                <h3 className="hidden lg:block">
                   <strong>Country:</strong> {doctor.country}
                 </h3>
-                <h3>
+                <h3 className="text-xs lg:text-base">
                   <strong>Education:</strong> {doctor.education}
                 </h3>
                 <Button
