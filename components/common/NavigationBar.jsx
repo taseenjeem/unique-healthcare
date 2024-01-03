@@ -20,10 +20,12 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import app from "@/providers/firebase.init";
 import toast from "react-hot-toast";
 import { usePathname, useRouter } from "next/navigation";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 export default function NavigationBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
+  const isLargeDevice = useMediaQuery("(min-width: 767px)");
 
   const router = useRouter();
 
@@ -70,7 +72,7 @@ export default function NavigationBar() {
 
   return (
     <Navbar
-      maxWidth="xl"
+      maxWidth={`${isLargeDevice && "xl"}`}
       isBlurred
       shouldHideOnScroll
       onMenuOpenChange={setIsMenuOpen}
@@ -78,7 +80,7 @@ export default function NavigationBar() {
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
+          className="md:hidden"
         />
         <NavbarBrand>
           <Link
@@ -90,7 +92,7 @@ export default function NavigationBar() {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-5" justify="center">
+      <NavbarContent className="hidden md:flex gap-5" justify="center">
         <NavbarItem>
           <Link
             href="/get-an-appointment"
