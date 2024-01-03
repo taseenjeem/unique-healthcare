@@ -1,3 +1,4 @@
+import DoctorDetails from "@/components/pages/FindADoctor/DoctorDetails/DoctorDetails";
 import React from "react";
 
 export async function generateMetadata({ params }) {
@@ -12,7 +13,7 @@ export async function generateMetadata({ params }) {
 }
 
 const page = () => {
-  return <div></div>;
+  return <DoctorDetails />;
 };
 
 export default page;
