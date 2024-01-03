@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import { IoLocationSharp } from "react-icons/io5";
 import { FaMedal } from "react-icons/fa6";
+import AppointmentForm from "./AppointmentForm";
 
 const DoctorDetails = () => {
   const params = useParams();
@@ -77,6 +78,7 @@ const DoctorDetails = () => {
           ))}
         </div>
       </div>
+      <AppointmentForm />
     </section>
   );
 };
