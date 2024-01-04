@@ -143,11 +143,19 @@ const Doctors = () => {
                 </p>
                 <div className="mt-72 md:mt-80 w-full h-full">
                   <div className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 w-full h-full">
-                    <span className="flex items-center gap-1 text-white mb-4">
+                    <span className="flex items-center gap-1 text-white">
                       <FaLocationDot className="text-lg" />{" "}
                       <p>{item.country}</p>
                     </span>
-                    <p className="text-sm text-white">{item.education}</p>
+                    <p className="text-sm text-white my-4">{item.education}</p>
+                    <Button
+                      href={`/find-a-doctor/${item.slug}`}
+                      variant="ghost"
+                      className="text-white hover:text-black w-full font-medium"
+                      as={Link}
+                    >
+                      Get Appointment
+                    </Button>
                   </div>
                 </div>
               </div>

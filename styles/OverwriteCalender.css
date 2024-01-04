@@ -1,0 +1,25 @@
+.react-calendar {
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 28rem;
+}
+
+button.react-calendar__tile.react-calendar__tile--now.react-calendar__month-view__days__day {
+  background: #27374d;
+  color: white;
+}
+
+.react-calendar__tile--active {
+  background: #9db2bf !important;
+  color: black;
+}
+
+.react-calendar__tile--hasActive {
+  background: #9db2bf !important;
+  color: black;
+}
+
+abbr {
+  text-decoration: none;
+}

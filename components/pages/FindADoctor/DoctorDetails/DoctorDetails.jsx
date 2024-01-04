@@ -78,7 +78,7 @@ const DoctorDetails = () => {
           ))}
         </div>
       </div>
-      <AppointmentForm />
+      <AppointmentForm doctorData={data} />
     </section>
   );
 };
