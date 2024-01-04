@@ -49,6 +49,19 @@ const AppointmentForm = ({ doctorData }) => {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const patient_name = e.target.name.value;
+    const patient_email = e.target.email.value;
+    const patient_address = e.target.address.value;
+    const patient_phone = e.target.phone.value;
+    const patient_age = e.target.age.value;
+    const patient_gender = e.target.gender.value;
+    const appointment_time = e.target.time.value;
+    const patient_type = e.target.type.value;
+  };
+
   return (
     <section>
       <span className="relative flex justify-center mb-3">
@@ -89,7 +102,7 @@ const AppointmentForm = ({ doctorData }) => {
           <h3 className="text-2xl font-semibold text-primary text-center">
             Get Appointment
           </h3>
-          <form className="mt-5">
+          <form className="mt-5" onSubmit={handleSubmit}>
             <small>
               You are making appointment for{" "}
               <strong className="text-primary">{doctorData[0]?.name}</strong>
@@ -101,7 +114,7 @@ const AppointmentForm = ({ doctorData }) => {
                 color="primary"
                 className="font-medium w-full"
                 label="Patient's Name"
-                name="patient_name"
+                name="name"
                 isRequired
               />
               <Input
@@ -110,7 +123,7 @@ const AppointmentForm = ({ doctorData }) => {
                 color="primary"
                 className="font-medium w-full"
                 label="Patient's Email"
-                name="patient_email"
+                name="email"
                 isRequired
               />
             </div>
@@ -121,7 +134,7 @@ const AppointmentForm = ({ doctorData }) => {
                 color="primary"
                 className="font-medium w-full"
                 label="Patient's Home Address"
-                name="patient_address"
+                name="address"
                 isRequired
               />
               <Input
@@ -130,7 +143,7 @@ const AppointmentForm = ({ doctorData }) => {
                 color="primary"
                 className="font-medium w-full"
                 label="Patient's Phone Number"
-                name="patient_email"
+                name="phone"
                 isRequired
               />
             </div>
@@ -140,7 +153,7 @@ const AppointmentForm = ({ doctorData }) => {
                 label="Select Patient's Age"
                 color="primary"
                 className="font-medium w-full"
-                name="patient_age"
+                name="age"
                 isRequired
               >
                 {ageRange.map((age, index) => (
@@ -154,7 +167,7 @@ const AppointmentForm = ({ doctorData }) => {
                 label="Select Patient's Gender"
                 color="primary"
                 className="font-medium w-full"
-                name="patient_gender"
+                name="gender"
                 isRequired
               >
                 {gender.map((g, index) => (
@@ -170,7 +183,7 @@ const AppointmentForm = ({ doctorData }) => {
                 label="Select Appointment Time"
                 color="primary"
                 className="font-medium w-full"
-                name="appointment_time"
+                name="time"
                 isRequired
               >
                 {appointmentTime.map((time, index) => (
@@ -184,7 +197,7 @@ const AppointmentForm = ({ doctorData }) => {
                 label="Select Patient's Type"
                 color="primary"
                 className="font-medium w-full"
-                name="patient_type"
+                name="type"
                 isRequired
               >
                 {patientType.map((type, index) => (
@@ -196,7 +209,8 @@ const AppointmentForm = ({ doctorData }) => {
             </div>
             <Textarea
               variant="underlined"
-              label="Any special recommendation? Write down in details."
+              label="Any special recommendation? Write down in details. (Optional)"
+              name="message"
               labelPlacement="inside"
               color="primary"
               className="font-medium w-full mt-3"

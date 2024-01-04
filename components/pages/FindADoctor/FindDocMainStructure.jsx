@@ -22,7 +22,9 @@ const FindDocMainStructure = () => {
     <section className="wrapper min-h-screen">
       <div className="grid lg:grid-cols-2 mt-5">
         <span>
-          <h1 className="text-4xl font-semibold text-primary">Find a doctor</h1>
+          <h1 className="text-4xl font-semibold text-primary">
+            Get an Appointment
+          </h1>
           <div className="border-gray-400 border-t-2 w-28 my-3" />
         </span>
         <p>

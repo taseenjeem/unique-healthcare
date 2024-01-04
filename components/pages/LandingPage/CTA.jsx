@@ -27,7 +27,7 @@ const CTA = () => {
           </p>
           <Button
             as={Link}
-            href="/get-an-appointment"
+            href="/find-a-doctor"
             color="secondary"
             className="text-white"
             variant="bordered"
