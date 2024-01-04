@@ -149,7 +149,7 @@ const Doctors = () => {
                     </span>
                     <p className="text-sm text-white my-4">{item.education}</p>
                     <Button
-                      href={`/find-a-doctor/${item.slug}`}
+                      href={`/get-an-appointment/${item.slug}`}
                       variant="ghost"
                       className="text-white hover:text-black w-full font-medium"
                       as={Link}
@@ -190,7 +190,7 @@ const Doctors = () => {
           </p>
           <Button
             as={Link}
-            href="/find-a-doctor"
+            href="/get-an-appointment"
             color="primary"
             className="text-white mt-5"
           >

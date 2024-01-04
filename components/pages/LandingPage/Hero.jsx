@@ -38,7 +38,7 @@ const Hero = () => {
           </p>
           <Button
             as={Link}
-            href="/find-a-doctor"
+            href="/get-an-appointment"
             color="primary"
             className="text-white"
           >

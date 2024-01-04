@@ -69,7 +69,7 @@ const FindDocMainStructure = () => {
                   as={Link}
                   size="sm"
                   color="primary"
-                  href={`/find-a-doctor/${doctor.slug}`}
+                  href={`/get-an-appointment/${doctor.slug}`}
                   className="text-white mt-3"
                 >
                   Learn More

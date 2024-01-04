@@ -95,14 +95,14 @@ export default function NavigationBar() {
       <NavbarContent className="hidden md:flex gap-5" justify="center">
         <NavbarItem>
           <Link
-            href="/find-a-doctor"
+            href="/get-an-appointment"
             className={
-              pathname == "/find-a-doctor"
+              pathname == "/get-an-appointment"
                 ? "text-sm font-bold text-primary"
                 : "text-sm"
             }
           >
-            Find a Doctor
+            Get Appointment
           </Link>
         </NavbarItem>
         <NavbarItem>
