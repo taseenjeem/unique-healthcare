@@ -12,9 +12,10 @@ import {
   Textarea,
 } from "@nextui-org/react";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 const AppointmentForm = ({ doctorData }) => {
-  const [appointmentDate, setAppointmentDate] = useState(new Date());
+  const [appointmentDate, setAppointmentDate] = useState(null);
   const [isSelected, setIsSelected] = useState(false);
 
   const ageRange = [
@@ -39,6 +40,15 @@ const AppointmentForm = ({ doctorData }) => {
 
   const patientType = ["Regular Patient", "New Patient"];
 
+  const handleDateChange = (date) => {
+    const today = new Date();
+    if (date.toDateString() === today.toDateString()) {
+      toast.error("You cannot place an appointment for today!");
+    } else {
+      setAppointmentDate(date);
+    }
+  };
+
   return (
     <section>
       <span className="relative flex justify-center mb-3">
@@ -60,10 +70,7 @@ const AppointmentForm = ({ doctorData }) => {
               <span className="text-red-500 text-xl">*</span>
             </label>
           </div>
-          <Calendar
-            onChange={(date) => setAppointmentDate(date)}
-            value={appointmentDate}
-          />
+          <Calendar onChange={handleDateChange} value={appointmentDate} />
           <div className="mb-4 text-center hidden lg:block mt-4">
             <label className="font-medium">
               Pick a date for appointment{" "}
