@@ -5,7 +5,7 @@ const NoticeSlide = () => {
   return (
     <Marquee className="bg-primary py-5">
       <p className="text-lg text-white">
-        Unique Pathology - Your Health Hub! Expert diagnostics, compassionate
+        Unique HealthCare - Your Health Hub! Expert diagnostics, compassionate
         care. Visit us for precise assessments and personalized attention. Your
         well-being matters to us!
       </p>

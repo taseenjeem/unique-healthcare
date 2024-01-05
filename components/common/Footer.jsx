@@ -13,9 +13,9 @@ const Footer = () => {
       <div className="wrapper py-16">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
-            <h4 className="md:text-2xl text-xl font-bold">Unique Pathology</h4>
+            <h4 className="md:text-2xl text-xl font-bold">Unique HealthCare</h4>
             <p className="max-w-xs mt-4 text-sm text-gray-600">
-              Unique Pathology is a leading medical center dedicated to precise
+              Unique HealthCare is a leading medical center dedicated to precise
               diagnostics and patient care in Sherpur, Bangladesh. Our expert
               team merges cutting-edge technology with compassionate service,
               ensuring accurate assessments and personalized attention for every
@@ -147,7 +147,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <p className="mt-8 text-xs text-gray-800">© 2023 Unique Pathology</p>
+        <p className="mt-8 text-xs text-gray-800">© 2023 Unique HealthCare</p>
       </div>
     </footer>
   );

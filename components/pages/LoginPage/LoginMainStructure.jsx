@@ -116,7 +116,7 @@ const LoginMainStructure = () => {
               </h4>
               <Divider className="my-2 w-20 mx-auto" />
               <h1 className="text-center text-2xl font-bold text-primary">
-                Unique Pathology <br />
+                Unique HealthCare <br />
                 Customer Portal
               </h1>
               <form className="mt-5" onSubmit={handleSubmit}>

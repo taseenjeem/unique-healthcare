@@ -30,7 +30,7 @@ const Hero = () => {
             Advancing Health, One Diagnosis at a Time!
           </h2>
           <p className="pr-5 mb-5 text-base text-gray-700 md:text-base">
-            Unique Pathology is a leading medical center dedicated to precise
+            Unique HealthCare is a leading medical center dedicated to precise
             diagnostics and patient care in Sherpur, Bangladesh. Our expert team
             merges cutting-edge technology with compassionate service, ensuring
             accurate assessments and personalized attention for every

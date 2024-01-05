@@ -87,7 +87,7 @@ export default function NavigationBar() {
             href="/"
             className="md:text-xl font-bold text-inherit text-primary"
           >
-            Unique Pathology
+            Unique HealthCare
           </Link>
         </NavbarBrand>
       </NavbarContent>

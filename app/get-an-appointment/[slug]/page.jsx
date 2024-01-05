@@ -8,7 +8,7 @@ export async function generateMetadata({ params }) {
   ).then((res) => res.json());
 
   return {
-    title: `${data[0]?.name} | Unique Pathology`,
+    title: `${data[0]?.name} | Unique HealthCare`,
     description: data[0]?.education,
   };
 }
