@@ -59,7 +59,35 @@ const AppointmentForm = ({ doctorData }) => {
     const patient_age = e.target.age.value;
     const patient_gender = e.target.gender.value;
     const appointment_time = e.target.time.value;
+    const appointment_date = appointmentDate.toString();
     const patient_type = e.target.type.value;
+    const message = e.target.message.value;
+
+    if (appointmentDate === null) {
+      return toast.error("Please select an appointment date.");
+    } else {
+      fetch("http://localhost:8000/add-new-appointment", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          patient_name,
+          patient_email,
+          patient_address,
+          patient_phone,
+          patient_age,
+          patient_gender,
+          appointment_time,
+          appointment_date,
+          patient_type,
+          message,
+          appointment_status: "pending",
+        }),
+      })
+        .then((response) => response.json())
+        .then((feedback) => {
+          toast.success(`${feedback.message}`);
+        });
+    }
   };
 
   return (
@@ -156,8 +184,8 @@ const AppointmentForm = ({ doctorData }) => {
                 name="age"
                 isRequired
               >
-                {ageRange.map((age, index) => (
-                  <SelectItem key={index} value={age}>
+                {ageRange.map((age) => (
+                  <SelectItem key={age} value={age}>
                     {age}
                   </SelectItem>
                 ))}
@@ -170,8 +198,8 @@ const AppointmentForm = ({ doctorData }) => {
                 name="gender"
                 isRequired
               >
-                {gender.map((g, index) => (
-                  <SelectItem key={index} value={g}>
+                {gender.map((g) => (
+                  <SelectItem key={g} value={g}>
                     {g}
                   </SelectItem>
                 ))}
@@ -186,8 +214,8 @@ const AppointmentForm = ({ doctorData }) => {
                 name="time"
                 isRequired
               >
-                {appointmentTime.map((time, index) => (
-                  <SelectItem key={index} value={time}>
+                {appointmentTime.map((time) => (
+                  <SelectItem key={time} value={time}>
                     {time}
                   </SelectItem>
                 ))}
@@ -200,8 +228,8 @@ const AppointmentForm = ({ doctorData }) => {
                 name="type"
                 isRequired
               >
-                {patientType.map((type, index) => (
-                  <SelectItem key={index} value={type}>
+                {patientType.map((type) => (
+                  <SelectItem key={type} value={type}>
                     {type}
                   </SelectItem>
                 ))}
