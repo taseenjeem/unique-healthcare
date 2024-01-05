@@ -72,7 +72,7 @@ const FindDocMainStructure = () => {
                   href={`/get-an-appointment/${doctor.slug}`}
                   className="text-white mt-3"
                 >
-                  Learn More
+                  Get Appointment
                 </Button>
               </div>
             </div>

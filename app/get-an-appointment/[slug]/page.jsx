@@ -1,4 +1,5 @@
 import DoctorDetails from "@/components/pages/FindADoctor/DoctorDetails/DoctorDetails";
+import RequireAuth from "@/components/utilities/RequireAuth";
 import React from "react";
 
 export async function generateMetadata({ params }) {
@@ -13,7 +14,11 @@ export async function generateMetadata({ params }) {
 }
 
 const page = () => {
-  return <DoctorDetails />;
+  return (
+    <RequireAuth>
+      <DoctorDetails />
+    </RequireAuth>
+  );
 };
 
 export default page;
