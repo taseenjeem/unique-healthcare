@@ -1,3 +1,4 @@
+import ContactUsMainStructure from "@/components/pages/ContactUs/ContactUsMainStructure";
 import React from "react";
 
 export const metadata = {
@@ -6,7 +7,7 @@ export const metadata = {
 };
 
 const ContactUsPage = () => {
-  return <div></div>;
+  return <ContactUsMainStructure />;
 };
 
 export default ContactUsPage;
