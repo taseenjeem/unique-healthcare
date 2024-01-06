@@ -1,3 +1,4 @@
+import AboutUsMainStructure from "@/components/pages/AboutUs/AboutUsMainStructure";
 import React from "react";
 
 export const metadata = {
@@ -6,7 +7,7 @@ export const metadata = {
 };
 
 const AboutUsPage = () => {
-  return <div></div>;
+  return <AboutUsMainStructure />;
 };
 
 export default AboutUsPage;
