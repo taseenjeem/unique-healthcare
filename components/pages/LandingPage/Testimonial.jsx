@@ -5,22 +5,19 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Loading from "@/components/utilities/Loading";
+import { useQuery } from "@tanstack/react-query";
 
 const Testimonial = () => {
-  const [data, setData] = useState(null);
-  const [isLoading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch("/data/CustomerReview.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-        setLoading(false);
-      });
-  }, []);
+  const { isLoading, data } = useQuery({
+    queryKey: ["Testimonials"],
+    queryFn: async () => {
+      const response = await fetch("http://localhost:8000/all-testimonials");
+      const testimonials = await response.json();
+      return testimonials;
+    },
+  });
 
   if (isLoading) return <Loading />;
-  if (!data) return <p>No profile data</p>;
 
   const sliderSettings = {
     dots: true,
@@ -50,7 +47,7 @@ const Testimonial = () => {
       <Slider className="my-10" {...sliderSettings}>
         {data?.map((item) => (
           <div
-            key={item.id}
+            key={item._id}
             className="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center md:p-10 rounded-lg"
           >
             <svg
