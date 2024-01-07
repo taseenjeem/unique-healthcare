@@ -1,8 +1,8 @@
 import React from "react";
-
 import HeroSections from "./HeroSections";
 import WhyChooseUs from "./WhyChooseUs";
 import Testimonial from "../LandingPage/Testimonial";
+import PoweredBy from "./PoweredBy";
 
 const AboutUsMainStructure = () => {
   return (
@@ -29,6 +29,7 @@ const AboutUsMainStructure = () => {
       <div className="wrapper">
         <HeroSections />
         <WhyChooseUs />
+        <PoweredBy />
         <Testimonial />
       </div>
     </section>
