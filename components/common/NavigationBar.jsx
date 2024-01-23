@@ -20,12 +20,10 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import app from "@/providers/firebase.init";
 import toast from "react-hot-toast";
 import { usePathname, useRouter } from "next/navigation";
-import useMediaQuery from "@/hooks/useMediaQuery";
 
 export default function NavigationBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
-  const isLargeDevice = useMediaQuery("(min-width: 767px)");
 
   const router = useRouter();
 
@@ -58,25 +56,14 @@ export default function NavigationBar() {
   };
 
   const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
+    { name: "Get Appointment", link: "/get-an-appointment" },
+    { name: "Notice", link: "/notice" },
+    { name: "About Us", link: "/about-us" },
+    { name: "Contact Us", link: "/contact-us" },
   ];
 
   return (
-    <Navbar
-      maxWidth={`${isLargeDevice && "xl"}`}
-      isBlurred
-      shouldHideOnScroll
-      onMenuOpenChange={setIsMenuOpen}
-    >
+    <Navbar isBlurred shouldHideOnScroll onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -103,18 +90,6 @@ export default function NavigationBar() {
             }
           >
             Get Appointment
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link
-            href="/pathology-lab"
-            className={
-              pathname == "/pathology-lab"
-                ? "text-sm font-bold text-primary"
-                : "text-sm"
-            }
-          >
-            Pathology Lab
           </Link>
         </NavbarItem>
         <NavbarItem>
@@ -181,7 +156,9 @@ export default function NavigationBar() {
                 <p className="font-semibold">Greetings!</p>
                 <p className="font-semibold text-lg">{userInfo?.displayName}</p>
               </DropdownItem>
-              <DropdownItem key="settings">My Account</DropdownItem>
+              <DropdownItem as={Link} href="/dashboard" key="settings">
+                My Account
+              </DropdownItem>
               <DropdownItem
                 key="logout"
                 color="danger"
@@ -193,10 +170,11 @@ export default function NavigationBar() {
           </Dropdown>
         )}
       </NavbarContent>
-      <NavbarMenu>
+      <NavbarMenu onMenuOpenChange={setIsMenuOpen}>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               color={
                 index === 2
                   ? "primary"
@@ -205,10 +183,10 @@ export default function NavigationBar() {
                   : "foreground"
               }
               className="w-full"
-              href="#"
+              href={item.link}
               size="lg"
             >
-              {item}
+              {item.name}
             </Link>
           </NavbarMenuItem>
         ))}

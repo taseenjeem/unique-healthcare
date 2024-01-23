@@ -1,11 +1,22 @@
 "use client";
 import { Avatar } from "@nextui-org/react";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Loading from "@/components/utilities/Loading";
 import { useQuery } from "@tanstack/react-query";
+
+const sliderSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  arrow: false,
+};
 
 const Testimonial = () => {
   const { isLoading, data } = useQuery({
@@ -18,17 +29,6 @@ const Testimonial = () => {
   });
 
   if (isLoading) return <Loading />;
-
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    arrow: false,
-  };
 
   return (
     <section className="wrapper md:my-20 my-10">
