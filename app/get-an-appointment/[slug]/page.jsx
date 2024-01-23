@@ -4,7 +4,7 @@ import React from "react";
 
 export async function generateMetadata({ params }) {
   const data = await fetch(
-    `http://localhost:8000/all-doctors-info-by-query?slug=${params.slug}`
+    `https://unique-healthcare-server.vercel.app/all-doctors-info-by-query?slug=${params.slug}`
   ).then((res) => res.json());
 
   return {

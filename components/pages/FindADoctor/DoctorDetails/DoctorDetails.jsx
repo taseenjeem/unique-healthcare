@@ -15,7 +15,7 @@ const DoctorDetails = () => {
     queryKey: ["SingleDoctorDetails"],
     queryFn: async () => {
       const response = await fetch(
-        `http://localhost:8000/all-doctors-info-by-query?slug=${params.slug}`
+        `https://unique-healthcare-server.vercel.app/all-doctors-info-by-query?slug=${params.slug}`
       );
       const SingleDoctorDetails = await response.json();
       return SingleDoctorDetails;

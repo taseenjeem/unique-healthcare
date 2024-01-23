@@ -16,7 +16,9 @@ const Doctors = () => {
   const { isLoading, data } = useQuery({
     queryKey: ["DoctorsSlide"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:8000/all-doctors-info");
+      const response = await fetch(
+        "https://unique-healthcare-server.vercel.app/all-doctors-info"
+      );
       const doctors = await response.json();
       return doctors;
     },

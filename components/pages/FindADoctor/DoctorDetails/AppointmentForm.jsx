@@ -70,24 +70,27 @@ const AppointmentForm = ({ doctorData }) => {
       if (appointmentDate === "") {
         return toast.error("Please select an appointment date.");
       } else {
-        fetch("http://localhost:8000/add-new-appointment", {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify({
-            patient_name,
-            patient_email,
-            patient_address,
-            patient_phone,
-            patient_age,
-            patient_gender,
-            appointment_time,
-            appointment_date,
-            patient_type,
-            message,
-            appointment_status: "pending",
-            appointed_doctor: doctorData[0]?.name,
-          }),
-        })
+        fetch(
+          "https://unique-healthcare-server.vercel.app/add-new-appointment",
+          {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({
+              patient_name,
+              patient_email,
+              patient_address,
+              patient_phone,
+              patient_age,
+              patient_gender,
+              appointment_time,
+              appointment_date,
+              patient_type,
+              message,
+              appointment_status: "pending",
+              appointed_doctor: doctorData[0]?.name,
+            }),
+          }
+        )
           .then((response) => response.json())
           .then((feedback) => {
             if (feedback.message === "Appointment booked successfully!") {

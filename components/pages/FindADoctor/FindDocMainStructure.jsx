@@ -10,7 +10,9 @@ const FindDocMainStructure = () => {
   const { isLoading, data } = useQuery({
     queryKey: ["AllDoctors"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:8000/all-doctors-info");
+      const response = await fetch(
+        "https://unique-healthcare-server.vercel.app/all-doctors-info"
+      );
       const AllDoctors = await response.json();
       return AllDoctors;
     },

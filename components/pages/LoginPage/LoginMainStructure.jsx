@@ -38,18 +38,21 @@ const LoginMainStructure = () => {
             const password = null;
             const account_creation_time = newUser?.user?.metadata?.creationTime;
 
-            fetch("http://localhost:8000/add-new-customer-info-with-pop-up", {
-              method: "POST",
-              headers: { "content-type": "application/json" },
-              body: JSON.stringify({
-                name,
-                email,
-                country,
-                phone,
-                password,
-                account_creation_time,
-              }),
-            })
+            fetch(
+              "https://unique-healthcare-server.vercel.app/add-new-customer-info-with-pop-up",
+              {
+                method: "POST",
+                headers: { "content-type": "application/json" },
+                body: JSON.stringify({
+                  name,
+                  email,
+                  country,
+                  phone,
+                  password,
+                  account_creation_time,
+                }),
+              }
+            )
               .then((response) => response.json())
               .then((feedback) => console.log(feedback));
 
