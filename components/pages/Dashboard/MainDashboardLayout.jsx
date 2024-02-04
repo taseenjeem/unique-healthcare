@@ -10,7 +10,7 @@ const MainDashboardLayout = () => {
   const [selected, setSelected] = useState("profile");
 
   return (
-    <>
+    <section className="min-h-screen">
       <div className="flex w-full flex-col wrapper my-10">
         <Tabs
           aria-label="Options"
@@ -49,7 +49,7 @@ const MainDashboardLayout = () => {
           </Tab>
         </Tabs>
       </div>
-    </>
+    </section>
   );
 };
 
