@@ -14,11 +14,16 @@ import {
 import Link from "next/link";
 import toast from "react-hot-toast";
 import Loading from "@/components/utilities/Loading";
+import { getAuth } from "firebase/auth";
+import app from "@/providers/firebase.init";
 
 const AppointmentForm = ({ doctorData }) => {
   const [appointmentDate, setAppointmentDate] = useState("");
   const [isSelected, setIsSelected] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  const auth = getAuth(app);
+  const user = auth.currentUser;
 
   const ageRange = [
     "Below 5 Years",
@@ -176,12 +181,14 @@ const AppointmentForm = ({ doctorData }) => {
                   />
                   <Input
                     type="email"
+                    value={user.email}
                     variant="underlined"
                     color="primary"
                     className="font-medium w-full"
                     label="Patient's Email"
                     name="email"
                     isRequired
+                    readOnly
                   />
                 </div>
                 <div className="lg:flex gap-3">
