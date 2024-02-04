@@ -1,5 +1,11 @@
+import MainDashboardLayout from "@/components/pages/Dashboard/MainDashboardLayout";
+
 const page = () => {
-  return <>heelo</>;
+  return (
+    <>
+      <MainDashboardLayout />
+    </>
+  );
 };
 
 export default page;
