@@ -1,9 +1,12 @@
 import MainDashboardLayout from "@/components/pages/Dashboard/MainDashboardLayout";
+import RequireAuth from "@/components/utilities/RequireAuth";
 
 const page = () => {
   return (
     <>
-      <MainDashboardLayout />
+      <RequireAuth>
+        <MainDashboardLayout />
+      </RequireAuth>
     </>
   );
 };

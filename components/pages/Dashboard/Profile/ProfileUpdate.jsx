@@ -1,5 +1,5 @@
 const ProfileUpdate = () => {
-  return <>Hello World</>;
+  return <>This is under development</>;
 };
 
 export default ProfileUpdate;
